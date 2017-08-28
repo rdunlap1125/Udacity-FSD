@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+{% block content %}
+  <section id="item-description">
+    <h2>{{item.name}}</h2>
+    <p>{{item.description}}</p>
+    {% if editable %}
+      <a href="{{url_for('editItem', category_name=item.category.name, item_name=item.name)}}">
+        Edit
+      </a>
+      |
+      <a href="{{url_for('deleteItem', category_name=item.category.name, item_name=item.name)}}">
+        Delete
+      </a>
+    {% endif %}
+  </section>
+{% endblock %}

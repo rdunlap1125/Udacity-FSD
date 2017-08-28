@@ -1,0 +1,29 @@
+{% extends "main.html" %}
+{% block content %}
+  <section>
+  	<h2>Categories</h2>
+    {% for category in categories %}
+      <a href = "{{url_for('showCategory', category_name = category.name)}}">
+        <p class="cat-name">{{category.name}}</p>
+      </a>
+	{% endfor %}
+  </section>
+  <section/>
+  	{% if items | count == 1 %}
+      <h2>{{category_name}} Items ({{items | count}} item)</h2>
+    {% else %}
+      <h2>{{category_name}} Items ({{items | count}} item)</h2>
+    {% endif %}
+
+    {% for item in items %}
+      <a href = "{{url_for('showItem', category_name = item.category.name, item_name=item.name)}}">
+        <p class="item-name">{{item.name}}</p>
+      </a>
+	{% endfor %}
+    {% if editable %}
+      <a class="crud-link" href="{{url_for('newItem', category_name=category_name)}}">
+        Create New Item
+      </a>
+    {% endif %}
+  </section>
+{% endblock %}

@@ -1,0 +1,35 @@
+* {
+	box-sizing: border-box
+}
+
+header {
+	border-bottom-style: solid;
+	border-color: black;
+}
+
+h2 {
+	margin-top: 5px;
+}
+
+.flex-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+#map {
+	height: 400px;
+}
+
+#selectors-area {
+	flex: 1;
+	max-width: 250px;
+}
+
+#map-area {
+	flex: 2;
+}
+
+#hamburger-navicon {
+	font-size: xx-large;
+}

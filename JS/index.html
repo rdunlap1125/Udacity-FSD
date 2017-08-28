@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Elkins Pointe Academic Bowl Tournaments</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header>
+    <h1>Elkins Pointe Academic Bowl 2017-2018 Schedule</h1>
+  </header>
+  <main class="flex-container">
+    <section id="selectors-area" data-bind="visible: selectorsVisible">
+      <h2>Tournament Sites</h2>
+      <label>Filter:</label>
+	  <input data-bind="textInput: filterString" />
+	  <ul id="location-list" data-bind="foreach: locationList">
+	    <li data-bind="text: title, click:$parent.selectLocation"></li>
+	  </ul>
+    </section>
+    <section id="map-area">
+	  <div id="hamburger-navicon" data-bind="click:toggleSelectors">&equiv;</div>
+	  <div id="map"></div>
+    </section>
+  </main>
+
+  <script src="js/data.js"></script>
+
+  <script src="js/lib/knockout-3.2.0.js"></script>
+  <script src="js/viewmodel.js"></script>
+
+  <script src="js/lib/jquery.min.js"></script>
+  <script src="js/map.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnOW1lHixc4duUgZsD4NU0jTcSeVigw3E&v=3&callback=MAP.callbackInitMap"
+    onerror="MAP.handleInitError()"></script>
+
+</body>
+</html>

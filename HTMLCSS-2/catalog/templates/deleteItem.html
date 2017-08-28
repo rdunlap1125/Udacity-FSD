@@ -1,0 +1,15 @@
+{% extends "main.html" %}
+{% block content %}
+  <section>
+    <h2>Delete This Item?</h2>
+    <form action="#" method = "POST">
+      <label for="name">Name:</label>
+      <input class="form-elem" type="text" maxlength="50" class="form-control" name="name" value="{{item.name}}" readonly></input>
+      <label for="description">Description:</label>
+      <textarea class="form-elem"  maxlength="250" rows="3" name="description" readonly>{{item.description}}</textarea>
+      <button type="submit">Delete</button>
+    </form>
+  </section>
+</main>
+{% endblock %}
+

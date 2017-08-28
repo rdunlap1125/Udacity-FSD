@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Catalog Application</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/app.css') }}">
+    {% block head %}
+    {% endblock %}
+  </head>
+  <body>
+    <header>
+      <h1>Catalog App</h1>
+      {% if not session.username %}
+        <a class='header-button' href="{{url_for('showLogin')}}">Login</a>
+      {% else %}
+        <a class='header-button' href="{{url_for('logout')}}">Logout</a>
+      {% endif %}
+    </header>
+    <main>
+      <section id='flash-section'>
+       {% with messages = get_flashed_messages() %}
+         {% if messages %}
+           <ul>
+             {% for message in messages %}
+               <li> <strong> {{ message }} </strong> </li>
+             {% endfor %}
+           </ul>
+         {% endif %}
+       {% endwith %}
+      </section>
+      {% block content %}
+      {% endblock %}
+    </main>
+  </body>
+</html>
